@@ -1,10 +1,12 @@
-
 <template>
   <svg>
-    <use :xlink:href="prefix + name" :fill="color"></use>
+    <use :href="prefix + name" :fill="color"></use>
   </svg>
 </template>
+
 <script setup lang="ts">
+import { defineProps } from 'vue';
+
 defineProps({
   prefix: {
     type: String,
@@ -23,6 +25,7 @@ defineProps({
     type: String,
     default: '16px',
   },
-})
+});
 </script>
+
 <style scoped></style>

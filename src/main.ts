@@ -13,7 +13,11 @@ import 'virtual:svg-icons-register'
 import allComponent from '@/components/index'
 // 自定义图标库
 import MyIcon from '@/components/MyIcon/MyIcon.vue';
+// 引入全局样式
+import '@/styles/index.scss'
 
+// 接口
+// import sxios from 'axios';
 
 const app = createApp(App)
 app.component('MyIcon', MyIcon);

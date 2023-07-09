@@ -7,12 +7,10 @@ import { defineProps } from 'vue';
 
 defineProps({
   name: {
-      type: String ,
-      required: true,
-    }
+    type: String,
+    required: true,
+  },
 });
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

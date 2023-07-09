@@ -17,11 +17,12 @@ import MyIcon from '@/components/MyIcon/MyIcon.vue';
 import '@/styles/index.scss';
 // 路由
 import router from '@/routers/index';
-// 接口
-// import sxios from 'axios';
+// pinia
+import pinia from './store';
 
 const app = createApp(App);
 app.component('MyIcon', MyIcon);
+app.use(pinia);
 app.use(allComponent);
 app.use(ElementPlus, {
   locale: zhCn,

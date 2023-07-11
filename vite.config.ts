@@ -1,9 +1,9 @@
-import {  UserConfigExport, ConfigEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'path'
-import { viteMockServe } from 'vite-plugin-mock'
+import { UserConfigExport, ConfigEnv } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import path from 'path';
+import { viteMockServe } from 'vite-plugin-mock';
 // 引入icon
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 // https://vitejs.dev/config/
 export default ({ command }: ConfigEnv): UserConfigExport => {
   return {
@@ -24,9 +24,9 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       preprocessorOptions: {
         scss: {
           javascriptEnabled: true,
-          additionalData: '@import "./src/styles/variable.scss";'
-        }
-      }
-    }
-  }
-}
+          additionalData: '@import "./src/styles/variable.scss";',
+        },
+      },
+    },
+  };
+};

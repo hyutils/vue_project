@@ -27,8 +27,6 @@ import Heder from './header/index.vue';
   .el-aside {
     width: 300px;
     height: 100vh;
-    color: #fff;
-    background: #00152b;
   }
 
   .el-header {

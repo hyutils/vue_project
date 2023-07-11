@@ -1,5 +1,5 @@
 <template>
-  <svg>
+  <svg :style="{ width, height }">
     <use :href="prefix + name" :fill="color"></use>
   </svg>
 </template>

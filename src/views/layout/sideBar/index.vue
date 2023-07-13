@@ -1,7 +1,7 @@
 <template>
   <duv class="leftSideBar">
     <el-menu
-      default-active="/three"
+      :default-active="state.activeKey"
       class="el-menu-vertical-demo"
       active-text-color="#ffd04b"
       background-color="#00152b"
@@ -23,23 +23,38 @@
         </el-menu-item>
       </template>
     </el-menu>
-    <svg-icon name="collapse" color="#fff" class="collapseIcon" />
+    <svg-icon
+      name="collapse"
+      color="#fff"
+      class="collapseIcon"
+      @click="props.onCollpase"
+    />
   </duv>
 </template>
 
 <script setup lang="ts">
+import { reactive } from 'vue';
 import { menuItem } from './data';
-import { Menu as IconMenu } from '@element-plus/icons-vue';
-import { defineComponent, PropType, ref } from 'vue';
+// import { defineProps } from 'vue';
+
+const props = defineProps({
+  sideWidth: Number,
+  onCollpase: Function,
+});
+const state = reactive({
+  activeKey: '/home',
+});
 </script>
 
 <style>
 .el-menu-vertical-demo {
   height: 100%;
+  width: 100%;
 }
 
 .leftSideBar {
   position: relative;
+  width: 100%;
 }
 .collapseIcon {
   position: absolute;

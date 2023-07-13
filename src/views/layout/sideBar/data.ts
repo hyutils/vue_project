@@ -1,23 +1,23 @@
 export const menuItem = [
   {
-    title: '用户',
+    title: '首页',
     path: '/home',
   },
   {
-    title: '数据面板',
+    title: '用户',
     path: '/data',
     children: [
-      { title: '数据1', path: '/data1' },
-      { title: '数据2', path: '/data2' },
+      { title: '权限管理', path: '/data1' },
+      { title: '用户列表', path: '/data2' },
       { title: '数据3', path: '/data3' },
     ],
   },
   {
-    title: 'Three Item',
+    title: '大屏展示',
     path: '/three',
   },
   {
-    title: 'Four Item',
+    title: '数据',
     path: '/four',
   },
 ];

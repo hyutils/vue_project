@@ -1,14 +1,14 @@
 <template>
   <div class="common-layout">
     <el-container>
-      <el-aside>
-        <SideBar></SideBar>
+      <el-aside :width="`${state.sideWidth}px`">
+        <SideBar :sideWidth="state.sideWidth" :onCollpase="onCollpase" />
       </el-aside>
-      <el-container>
+      <el-container :style="{ width: `calc(100% - ${state.sideWidth}px)` }">
         <el-header>
-          <Heder></Heder>
+          <Heder />
         </el-header>
-        <el-main>Main</el-main>
+        <el-main class="mainConner">Main</el-main>
       </el-container>
     </el-container>
   </div>
@@ -17,6 +17,16 @@
 <script setup lang="ts">
 import SideBar from './sideBar/index.vue';
 import Heder from './header/index.vue';
+import { reactive } from 'vue';
+
+const state = reactive({
+  sideWidth: 200,
+});
+
+const onCollpase = () => {
+  const width = state.sideWidth;
+  state.sideWidth = width === 200 ? 100 : 200;
+};
 </script>
 
 <style scoped lang="scss">
@@ -25,19 +35,17 @@ import Heder from './header/index.vue';
   height: 100vh;
 
   .el-aside {
-    width: 300px;
     height: 100vh;
   }
 
   .el-header {
-    height: 100px;
+    height: 52px;
+    padding: 0 !important;
     width: 100%;
-    background: yellowgreen;
   }
 
-  .el-main {
+  .mainConner {
     height: calc(100vh - 100px);
-    background: #f99;
     padding: 24px;
   }
 }

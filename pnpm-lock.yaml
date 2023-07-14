@@ -28,6 +28,9 @@ devDependencies:
   '@babel/eslint-parser':
     specifier: ^7.22.5
     version: 7.22.5(@babel/core@7.22.5)(eslint@8.44.0)
+  '@types/vue':
+    specifier: ^2.0.0
+    version: 2.0.0
   '@types/vue-router':
     specifier: ^2.0.0
     version: 2.0.0(vue@3.2.47)
@@ -834,6 +837,13 @@ packages:
       vue-router: 4.2.4(vue@3.2.47)
     transitivePeerDependencies:
       - vue
+    dev: true
+
+  /@types/vue@2.0.0:
+    resolution: {integrity: sha512-WDElkBv/o4lVwu6wYHB06AXs4Xo2fwDjJUpvPRc1QQdzkUSiGFjrYuSCy8raxLE5FObgKq8ND7R5gSZTFLK60w==}
+    deprecated: This is a stub types definition for vuejs (https://github.com/vuejs/vue). vuejs provides its own type definitions, so you don't need @types/vue installed!
+    dependencies:
+      vue: 3.2.47
     dev: true
 
   /@types/web-bluetooth@0.0.16:

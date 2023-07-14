@@ -1,5 +1,5 @@
 <template>
-  <div class="common-layout">
+  <div class="layout-wrapper">
     <el-container>
       <el-aside :width="`${state.sideWidth}px`">
         <SideBar :sideWidth="state.sideWidth" :onCollpase="onCollpase" />
@@ -30,7 +30,7 @@ const onCollpase = () => {
 </script>
 
 <style scoped lang="scss">
-.common-layout {
+.layout-wrapper {
   width: 100%;
   height: 100vh;
 

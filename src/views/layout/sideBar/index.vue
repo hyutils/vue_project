@@ -1,35 +1,53 @@
 <template>
-  <duv class="leftSideBar">
+  <div class="leftSideBar">
     <el-menu
       :default-active="state.activeKey"
       class="el-menu-vertical-demo"
       active-text-color="#ffd04b"
       background-color="#00152b"
       text-color="#fff"
+      :collapse="state.isCollpase"
     >
       <template v-for="(item, index) in menuItem">
         <el-sub-menu :key="index" v-if="item.children" :index="item.path">
-          <template #title>{{ item.title }}</template>
+          <template #title>
+            <el-icon>
+              <component :is="item.icon"></component>
+            </el-icon>
+            <span>
+              {{ item.title }}
+            </span>
+          </template>
           <el-menu-item
             v-for="child in item.children"
             :key="child.path"
             :index="child.path"
           >
-            {{ child.title }}
+            <el-icon>
+              <component :is="child.icon"></component>
+            </el-icon>
+            <template #title>
+              <span>{{ child.title }}</span>
+            </template>
           </el-menu-item>
         </el-sub-menu>
         <el-menu-item v-else :key="item.path" :index="item.path">
-          {{ item.title }}
+          <el-icon>
+            <component :is="item.icon"></component>
+          </el-icon>
+          <template #title>
+            <span>{{ item.title }}</span>
+          </template>
         </el-menu-item>
       </template>
     </el-menu>
-    <svg-icon
-      name="collapse"
-      color="#fff"
-      class="collapseIcon"
-      @click="props.onCollpase"
-    />
-  </duv>
+    <el-icon v-show="state.isCollpase" class="collapseIcon" @click="onChange">
+      <Expand />
+    </el-icon>
+    <el-icon v-show="!state.isCollpase" class="collapseIcon" @click="onChange">
+      <Fold />
+    </el-icon>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -38,12 +56,17 @@ import { menuItem } from './data';
 // import { defineProps } from 'vue';
 
 const props = defineProps({
-  sideWidth: Number,
   onCollpase: Function,
 });
 const state = reactive({
   activeKey: '/home',
+  isCollpase: false,
 });
+
+const onChange = () => {
+  props.onCollpase?.();
+  state.isCollpase = !state.isCollpase;
+};
 </script>
 
 <style>
@@ -55,11 +78,13 @@ const state = reactive({
 .leftSideBar {
   position: relative;
   width: 100%;
+  height: 100%;
 }
 .collapseIcon {
   position: absolute;
   bottom: 24px;
   right: 24px;
+  color: #fff;
   cursor: pointer;
 }
 </style>

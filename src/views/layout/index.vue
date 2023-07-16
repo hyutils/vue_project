@@ -2,7 +2,7 @@
   <div class="layout-wrapper">
     <el-container>
       <el-aside :width="`${state.sideWidth}px`">
-        <SideBar :sideWidth="state.sideWidth" :onCollpase="onCollpase" />
+        <SideBar :onCollpase="onCollpase" />
       </el-aside>
       <el-container :style="{ width: `calc(100% - ${state.sideWidth}px)` }">
         <el-header>
@@ -25,7 +25,7 @@ const state = reactive({
 
 const onCollpase = () => {
   const width = state.sideWidth;
-  state.sideWidth = width === 200 ? 100 : 200;
+  state.sideWidth = width === 200 ? 80 : 200;
 };
 </script>
 
@@ -36,6 +36,7 @@ const onCollpase = () => {
 
   .el-aside {
     height: 100vh;
+    overflow-x: hidden;
   }
 
   .el-header {

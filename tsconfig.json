@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "./", 
+    "skipLibCheck": true,
+    "noUnusedLocals": false,
+    "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     },
@@ -8,7 +10,6 @@
     "useDefineForClassFields": false,
     "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
 
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": false,
@@ -18,7 +19,6 @@
     "jsx": "preserve",
 
     "strict": true,
-    "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },

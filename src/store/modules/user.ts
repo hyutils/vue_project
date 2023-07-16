@@ -1,4 +1,4 @@
-import { constanRoute } from '@/routers/routes';
+import { constantRoute } from '@/routers/routes';
 import { defineStore } from 'pinia';
 import { loginIn, loginOut, getUserInfo } from '@/api/user/index';
 import { setToken, getToken, removeToken } from '@/utils/token';
@@ -6,7 +6,7 @@ const userStore = defineStore('User', {
   state: () => {
     return {
       token: '',
-      menuRoutes: constanRoute,
+      menuRoutes: constantRoute,
       username: '',
       avatar: '',
       buttons: [],

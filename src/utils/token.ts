@@ -1,11 +1,11 @@
-export const setToken = (key: string, value: string) => {
-    localStorage.setItem(key, value);
+export const SET_STROAGE = (key: string, value: string) => {
+  localStorage.setItem(key, value);
 };
 
-export const getToken = (key: string) => {
-    return localStorage.getItem(key);
+export const GET_STROAGE = (key: string) => {
+  return localStorage.getItem(key);
 };
 
-export const removeToken = (key: string) => {
-    localStorage.removeItem(key);
+export const REMOVE_STROAGE = (key: string) => {
+  localStorage.removeItem(key);
 };

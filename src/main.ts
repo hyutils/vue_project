@@ -13,13 +13,14 @@ import 'virtual:svg-icons-register';
 import allComponent from '@/components/index';
 // 自定义图标库
 import MyIcon from '@/components/MyIcon/MyIcon.vue';
-
 // 引入全局样式
 import '@/styles/index.scss';
 // 路由
 import router from '@/routers/index';
 // pinia
 import pinia from './store';
+// 路由守卫
+import './promiss';
 
 const app = createApp(App);
 app.component('MyIcon', MyIcon);

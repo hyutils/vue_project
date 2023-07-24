@@ -2,12 +2,9 @@
 import axios from 'axios';
 
 // 引入组件库
-import ElementPlus from 'element-plus';
+import ElementPlus, { ElMessage } from 'element-plus';
+import { GET_STROAGE } from './token';
 
-// 声明 ElMessage 类型
-declare module 'element-plus' {
-  export const ElMessage: any;
-}
 // import useUserStore from '@/store/modules/user'
 const request = axios.create({
   timeout: 6000,
@@ -16,6 +13,10 @@ const request = axios.create({
 
 request.interceptors.request.use(
   (config) => {
+    const token = GET_STROAGE('token');
+    if (token) {
+      config.headers.token = token;
+    }
     return config;
   },
   (error) => {

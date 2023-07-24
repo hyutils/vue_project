@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <el-row>
-      <el-col :span="12" :xs="0">左侧</el-col>
+      <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
         <el-form class="login-form" :model="loginForm">
           <h1>hello</h1>

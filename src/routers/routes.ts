@@ -42,6 +42,15 @@ export const constantRoute = [
           icon: 'Platform',
         },
       },
+      {
+        path: '/acl/user',
+        component: () => import('@/views/user/index.vue'),
+        name: 'User',
+        meta: {
+          title: '用户',
+          hidden: false,
+        },
+      },
     ],
   },
   {

@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import SideBar from './sideBar/index.vue';
+import Heder from './header/index.vue';
+import { reactive } from 'vue';
+
+const state = reactive({
+  sideWidth: 200,
+});
+
+const onCollpase = () => {
+  const width = state.sideWidth;
+  state.sideWidth = width === 200 ? 80 : 200;
+};
+</script>
+
 <template>
   <div class="layout-wrapper">
     <el-container>
@@ -15,21 +30,6 @@
     </el-container>
   </div>
 </template>
-
-<script setup lang="ts">
-import SideBar from './sideBar/index.vue';
-import Heder from './header/index.vue';
-import { reactive } from 'vue';
-
-const state = reactive({
-  sideWidth: 200,
-});
-
-const onCollpase = () => {
-  const width = state.sideWidth;
-  state.sideWidth = width === 200 ? 80 : 200;
-};
-</script>
 
 <style scoped lang="scss">
 .layout-wrapper {

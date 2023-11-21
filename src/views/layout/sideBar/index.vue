@@ -1,3 +1,30 @@
+<script setup lang="ts">
+import { reactive } from 'vue';
+import { menuItem } from './data';
+import { useRouter } from 'vue-router';
+// import { defineProps } from 'vue';
+const $router = useRouter();
+const props = defineProps({
+  onCollpase: Function,
+});
+const state = reactive({
+  activeKey: '/home',
+  isCollpase: false,
+});
+
+const onChange = () => {
+  props.onCollpase?.();
+  state.isCollpase = !state.isCollpase;
+};
+
+const goRoute = (vc: string) => {
+  //路由跳转
+  console.log('hgg', vc);
+
+  $router.push(vc);
+};
+</script>
+
 <template>
   <div class="leftSideBar">
     <el-menu
@@ -56,34 +83,6 @@
     </el-icon>
   </div>
 </template>
-
-<script setup lang="ts">
-import { reactive } from 'vue';
-import { menuItem } from './data';
-import { useRouter } from 'vue-router';
-// import { defineProps } from 'vue';
-const $router = useRouter();
-const props = defineProps({
-  onCollpase: Function,
-});
-const state = reactive({
-  activeKey: '/home',
-  isCollpase: false,
-});
-
-const onChange = () => {
-  props.onCollpase?.();
-  state.isCollpase = !state.isCollpase;
-};
-
-const goRoute = (vc: string) => {
-  //路由跳转
-  console.log('hgg', vc);
-
-  $router.push(vc);
-};
-</script>
-
 <style>
 .el-menu-vertical-demo {
   height: 100%;

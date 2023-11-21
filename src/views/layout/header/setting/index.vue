@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+import { UserFilled } from '@element-plus/icons-vue';
+import { Monitor, Search, Setting } from '@element-plus/icons-vue';
+import { useRouter } from 'vue-router';
+import userStore from '@/store/modules/user';
+const useUserStore = userStore();
+const $router = useRouter();
+const logOut = async () => {
+  const res: any = await useUserStore.userLogout({});
+  console.log('退出登录', res);
+
+  if (res.code === 200) $router.push('/login');
+};
+</script>
 <template>
   <div class="setting-wrapper">
     <div style="margin-right: 16px">
@@ -26,20 +40,7 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup>
-import { UserFilled } from '@element-plus/icons-vue';
-import { Monitor, Search, Setting } from '@element-plus/icons-vue';
-import { useRouter } from 'vue-router';
-import userStore from '@/store/modules/user';
-const useUserStore = userStore();
-const $router = useRouter();
-const logOut = async () => {
-  const res: any = await useUserStore.userLogout({});
-  console.log('退出登录', res);
 
-  if (res.code === 200) $router.push('/login');
-};
-</script>
 <style scoped lang="scss">
 .setting-wrapper {
   display: flex;

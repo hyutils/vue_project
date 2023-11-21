@@ -1,3 +1,30 @@
+<script setup lang="ts">
+import { User, Lock } from '@element-plus/icons-vue';
+import { reactive } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+import { ElMessage } from 'element-plus';
+import useUserStore from '@/store/modules/user';
+const userStore = useUserStore();
+const loginForm = reactive({ username: 'admin', password: '123456' });
+let $router = useRouter();
+let $route = useRoute();
+const login = async () => {
+  //
+  try {
+    await userStore.userLogin(loginForm);
+    let redirect: string = $route.query.redirect as string;
+    $router.push({ path: redirect || '/' });
+    $router.push('/');
+    ElMessage({
+      type: 'success',
+      message: '登录成功',
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+</script>
+
 <template>
   <div class="login-container">
     <el-row>
@@ -29,33 +56,6 @@
     </el-row>
   </div>
 </template>
-
-<script setup lang="ts">
-import { User, Lock } from '@element-plus/icons-vue';
-import { reactive } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
-import { ElMessage } from 'element-plus';
-import useUserStore from '@/store/modules/user';
-const userStore = useUserStore();
-const loginForm = reactive({ username: 'admin', password: '123456' });
-let $router = useRouter();
-let $route = useRoute();
-const login = async () => {
-  //
-  try {
-    await userStore.userLogin(loginForm);
-    let redirect: string = $route.query.redirect as string;
-    $router.push({ path: redirect || '/' });
-    $router.push('/');
-    ElMessage({
-      type: 'success',
-      message: '登录成功',
-    });
-  } catch (err) {
-    console.log(err);
-  }
-};
-</script>
 
 <style scoped lang="scss">
 .login-container {

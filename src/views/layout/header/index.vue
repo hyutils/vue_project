@@ -1,14 +1,14 @@
+<script setup lang="ts">
+import BreadCrumb from './breadCrumb/index.vue';
+import Setting from './setting/index.vue';
+</script>
+
 <template>
   <div class="header-wrapper">
     <BreadCrumb></BreadCrumb>
     <Setting />
   </div>
 </template>
-
-<script setup lang="ts">
-import BreadCrumb from './breadCrumb/index.vue';
-import Setting from './setting/index.vue';
-</script>
 
 <style scoped>
 .header-wrapper {

@@ -47,8 +47,62 @@ export const constantRoute = [
         component: () => import('@/views/user/index.vue'),
         name: 'User',
         meta: {
-          title: '用户',
-          hidden: false,
+          title: '用户管理',
+          icon: 'User',
+        },
+      },
+      {
+        path: '/acl/role',
+        component: () => import('@/views/user/index.vue'),
+        name: 'Role',
+        meta: {
+          title: '角色管理',
+          icon: 'UserFilled',
+        },
+      },
+      {
+        path: '/acl/permission',
+        component: () => import('@/views/user/index.vue'),
+        name: 'Permission',
+        meta: {
+          title: '菜单管理',
+          icon: 'Monitor',
+        },
+      },
+      {
+        path: '/product/trademark',
+        component: () => import('@/views/product/index.vue'),
+        name: 'Trademark',
+        meta: {
+          title: '品牌管理',
+          icon: 'ShoppingCartFull',
+        },
+      },
+      {
+        path: '/product/attr',
+        component: () => import('@/views/product/index.vue'),
+        name: 'Attr',
+        meta: {
+          title: '属性管理',
+          icon: 'ChromeFilled',
+        },
+      },
+      {
+        path: '/product/spu',
+        component: () => import('@/views/product/index.vue'),
+        name: 'Spu',
+        meta: {
+          title: 'SPU管理',
+          icon: 'Calendar',
+        },
+      },
+      {
+        path: '/product/sku',
+        component: () => import('@/views/product/index.vue'),
+        name: 'Sku',
+        meta: {
+          title: 'SKU管理',
+          icon: 'Orange',
         },
       },
     ],

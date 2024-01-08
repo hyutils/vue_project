@@ -22,10 +22,16 @@ import pinia from './store';
 // 路由守卫
 import './promiss';
 
+// 自定义指令
+import { scrollToDirective } from './directive/ScrollTo';
+
 const app = createApp(App);
 app.component('MyIcon', MyIcon);
 app.use(pinia);
 app.use(allComponent);
+
+// 注册全局指令
+app.directive('scroll-to', scrollToDirective);
 app.use(ElementPlus, {
   locale: zhCn,
 });

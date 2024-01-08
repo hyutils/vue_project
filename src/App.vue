@@ -21,6 +21,10 @@ watch(value, (value) => console.log('输出value', value));
 watch(value1, (value) => console.log('输出value1', value));
 </script>
 <style lang="scss">
+body {
+  padding: 0;
+  margin: 0;
+}
 .title {
   color: $color;
 }
